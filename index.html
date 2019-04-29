@@ -1,0 +1,425 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+  <title>more time to think</title>
+  <meta name="author" content="Andy Miller, Target.com" />
+
+  <link rel="stylesheet" href="css/reveal.css" />
+  <!--
+      <link rel="stylesheet" href="css/theme/solarized.css">
+      <link rel="stylesheet" href="css/theme/beige.css">
+      <link rel="stylesheet" href="css/theme/black.css">
+      <link rel="stylesheet" href="css/theme/blood.css">
+      <link rel="stylesheet" href="css/theme/league.css">
+      <link rel="stylesheet" href="css/theme/moon.css">
+      <link rel="stylesheet" href="css/theme/night.css">
+      <link rel="stylesheet" href="css/theme/serif.css">
+      <link rel="stylesheet" href="css/theme/simple.css">
+      <link rel="stylesheet" href="css/theme/sky.css">
+      <link rel="stylesheet" href="css/theme/solarized.css">
+      <link rel="stylesheet" href="css/theme/white.css">
+  -->
+  <link rel="stylesheet" href="css/theme/serif.css">
+
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="lib/css/zenburn.css" />
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+
+  <style>
+    .highlighted { color: blue; }
+  </style>
+</head>
+
+<body>
+  <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+      <section data-state="title">
+        <br />
+        <h3> Engineering (Towards) Agile </h3>
+        <br />
+        <br />
+        <br />
+        <p> Andy Miller </p>
+        <p> <a href="mailto:onetribeyoyo@gmail.com">onetribeyoyo@gmail.com</a> </p>
+        <p> <a href="mailto:andrew.r.miller@target.com">andrew.r.miller@target.com</a> </p>
+      </section>
+
+      <section>
+        <img class="fragment" src="images/D-Zverev_Rostov-Velikiy2.jpg" />
+      </section>
+
+      <section>
+        <p class="fragment">have you ever seen an <br /> old photo of yourself...</p>
+        <img class="fragment" src="images/the-byrds.jpg" alt="the byrds" />
+        <p class="fragment highlighted">
+          ...and been embarrassed at<br />
+          the way you looked?
+        </p>
+      </section>
+
+      <section>
+        <p>have you ever looked at old code you wrote...</p>
+        <pre class="fragment"><code>
+   PROGRAM MAIN             |  SUBROUTINE SUB1(X,DUMSUB)
+   INTEGER N, X             |  INTEGER N, X
+   EXTERNAL SUB1            |  EXTERNAL DUMSUB
+   COMMON /GLOBALS/ N       |  COMMON /GLOBALS/ N
+   X = 0                    |  IF(X .LT. N)THEN
+   PRINT *, 'Enter number   |    X = X + 1
+   READ (*,*) N             |    PRINT *, 'x = ', X
+   CALL SUB1(X,SUB1)        |    CALL DUMSUB(X,DUMSUB)
+   END                      |  END IF
+                            |  END
+        </code></pre>
+        <p class="fragment highlighted">
+          ...and thought wtf?
+        </p>
+      </section>
+
+      <section>
+        <p>have you looked at old project plans and budgets...</p>
+        <br />
+        <br />
+        <p class="fragment highlighted">
+          ...and been embarrassed by how much time/money you spent on things that are so easy today?
+        </p>
+      </section>
+
+      <section>
+        <img src="images/einstein.jpg" alt="t = $" />
+      </section>
+
+      <section>
+        <p>
+          the truth is we spent entire project budgets <br />
+          on really hard stuff...
+        </p>
+        <br />
+        <ul class="fragment">
+          <li>figuring out how to organize source code
+          <li>figuring out dependency management
+          <li>figuring out build automation
+          <li>figuring out how we're gonna persist data
+          <li>figuring out test automation
+          <li>figuring out containerization
+          <li>...
+        </ul>
+      </section>
+
+      <section>
+        <div class="fragment">
+          <p>looking back, it's amazing we had time (or money) left over to work on the important things...</p>
+          <br />
+          <p class="fragment highlighted">LIKE WHAT THE SOFTWARE WAS <br />
+          ACTUALLY SUPPOSED TO DO!</p>
+        </div>
+      </section>
+
+      <section>
+        <p> the hardest thing is... </p>
+        <p class="fragment highlighted">
+          <br />
+          <br />
+          figuring out how "we" are
+          <br />
+          going to work together
+          <br />
+          to get this done
+        </p>
+      </section>
+
+      <section>
+        programming vs engineering
+      </section>
+
+      <section>
+        <p> When building just about anything... </p>
+        <img class="fragment" src="images/mttt/mttt-0.png" />
+      </section>
+      <section> <img src="images/mttt/mttt-1.png" /> </section>
+      <section> <img src="images/mttt/mttt-2.png" /> </section>
+      <section> <img src="images/mttt/mttt-3.png" /> </section>
+      <section> <img src="images/mttt/mttt-4.png" /> </section>
+      <section> <img src="images/mttt/mttt-5.png" /> </section>
+      <section> <img src="images/mttt/mttt-6.png" /> </section>
+      <section> <img src="images/mttt/mttt-7.png" /> </section>
+
+      <section>
+        remember... programming vs engineering
+      </section>
+
+      <section>
+        <p> Engineering Process </p>
+        <br />
+        <ol>
+          <li class="fragment"> Research, <br /> <br /> </li>
+          <li class="fragment"> Prototype, <br /> <br /> </li>
+          <li class="fragment"> Sensitivity analysis (what matters?), <br /> <br /> </li>
+          <li class="fragment"> Final build. </li>
+        </ol>
+      </section>
+
+      <section>
+        <p> Command &amp; Control <br /> (waterfall-ish) </p>
+        <br />
+        <ol>
+          <li>
+            Research <br />
+            <em class="fragment highlighted">"decide everything up-front,"</em>
+          </li>
+          <li>
+            Prototype <br />
+            <em class="fragment highlighted">"shutup and just build it,"</em>
+          </li>
+          <li>
+            Sensitivity analysis <br />
+            <em class="fragment highlighted">"sorry, it's too late to fix anything",</em>
+          </li>
+          <li>
+            Final build <br />
+            <em class="fragment highlighted"> "find another job 'cause a lot of people <br />
+            are pissed off".</em>
+          </li>
+        </ol>
+      </section>
+
+      <section>
+        <p> Agile(-ish) </p>
+        <br />
+        <ol>
+          <li>
+            Research <br />
+            <em class="fragment highlighted">"product backlog,"</em>
+          </li>
+          <li>
+            Prototype <br />
+            <em class="fragment highlighted">"MVP,"</em>
+          </li>
+          <li>
+            Sensitivity analysis <br />
+            <em class="fragment highlighted">"prioritization and retrospectives",</em>
+          </li>
+          <li>
+            Final build <br />
+            &nbsp;
+          </li>
+        </ol>
+      </section>
+
+      <section>
+        <p> Agile(-ish) </p>
+        <br />
+        <ol>
+          <li>
+            Research <br />
+            <em class="highlighted">"product backlog,"</em>
+          </li>
+          <li>
+            Prototype <br />
+            <em class="highlighted">"MVP,"</em>
+          </li>
+          <li>
+            Sensitivity analysis <br />
+            <em class="highlighted">"prioritization and retrospectives",</em>
+          </li>
+          <li>
+            <strike> Final build </strike> <br />
+            <em class="highlighted"> "iterative refinement".</em>
+          </li>
+        </ol>
+      </section>
+
+      <section>
+        <p>
+          The secret to how we got from C&amp;C to agile...
+        </p>
+        <p class="fragment">
+          is agile. <br />
+        </p>
+        <p class="fragment">
+          (and we're not done yet) <br /> <br />
+        </p>
+        <p class="fragment">
+          keep on refining <br /> <br />
+        </p>
+        <p class="fragment">
+          look at your tools, <br />
+          pick up what you need, <br />
+          make new ones when necessary, <br />
+          repeat
+        </p>
+      </section>
+
+      <section>
+        <p> tools? </p>
+      </section>
+
+      <section>
+        <img src="images/scrum-checklist.png" />
+      </section>
+
+      <section>
+        programming vs engineering ....
+      </section>
+
+      <section>
+        <p> swebok </p>
+      </section>
+
+      <section>
+        <p>
+          <u class="highlighted">s</u>oft<u class="highlighted">w</u>are
+          <u class="highlighted">e</u>ngineering
+          <u class="highlighted">b</u>ody
+          <u class="highlighted">o</u>f
+          <u class="highlighted">k</u>nowledge
+        </p>
+      </section>
+
+      <section>
+        <small>
+        <ul>
+          <li> Software Requirements </li>
+          <li> Software Design </li>
+          <li> Software Construction </li>
+          <li> Software Testing </li>
+          <li> Software Maintenance </li>
+          <li> Software Configuration Management </li>
+          <li> Software Engineering Management </li>
+          <li> Software Engineering Process </li>
+          <li> Software Engineering Models and Methods </li>
+          <li> Software Quality </li>
+          <li> Software Engineering Professional Practice </li>
+          <li> Software Engineering Economics </li>
+          <li> Computing Foundations </li>
+          <li> Mathematical Foundations </li>
+          <li> Engineering Foundations </li>
+        </ul>
+        </small>
+      </section>
+
+      <section>
+        <small>
+        <ul>
+          <li> Software Requirements </li>
+          <li> Software Design </li>
+          <li> Software Construction </li>
+          <li> Software Testing </li>
+          <li> Software Maintenance </li>
+          <li> Software Configuration Management </li>
+          <li> Software Engineering Management <br /> <br /> </li>
+          <li> <span class="highlighted"> Software Engineering Process </span> <br /> <br /> </li>
+          <li> Software Engineering Models and Methods </li>
+          <li> Software Quality </li>
+          <li> Software Engineering Professional Practice </li>
+          <li> Software Engineering Economics </li>
+          <li> Computing Foundations </li>
+          <li> Mathematical Foundations </li>
+          <li> Engineering Foundations </li>
+        </ul>
+        </small>
+      </section>
+
+      <section>
+        <small>
+        <ul>
+          <li> .... </li>
+          <li>
+            <span class="highlighted"> Software Engineering Process </span>
+            <ul>
+              <li> Software Process Definition </li>
+              <li> Software Life Cycles </li>
+              <li> Software Process Assessment and Improvement </li>
+              <li> Software Measurement </li>
+              <li> Software Engineering Process Tools </li>
+            </ul>
+          </li>
+          <li> .... </li>
+        </ul>
+        </small>
+      </section>
+
+      <section>
+        <small>
+        <ul>
+          <li> .... </li>
+          <li>
+            <span class="highlighted"> Engineering Foundations </span>
+            <ul>
+              <li> Empirical Methods and Experimental Techniques </li>
+              <li> Statistical Analysis </li>
+              <li> Measurement </li>
+              <li> Engineering Design </li>
+              <li> Modeling, Simulation, and Prototyping </li>
+              <li> Standards </li>
+              <li> Root Cause Analysis </li>
+            </ul>
+          </li>
+          <li> .... </li>
+        </ul>
+        </small>
+      </section>
+
+      <section>
+        <p> ? ? ? </p>
+        <br />
+        <p>
+          <small>
+            https://www.crisp.se/gratis-material-och-guider/scrum-checklist <br />
+            <br />
+            https://www.computer.org/education/bodies-of-knowledge/software-engineering/topics
+          </small>
+        </p>
+        <br />
+        <p>
+          <small>
+          Andy Miller <br />
+          <a href="mailto:onetribeyoyo@gmail.com">onetribeyoyo@gmail.com</a> <br />
+          <a href="mailto:andrew.r.miller@target.com">andrew.r.miller@target.com</a> <br />
+          (612) 269-7369
+          </small>
+        </p>
+      </section>
+
+      <section>
+
+      </section>
+
+    </div>
+
+  </div>
+
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+
+        <script>
+            // More info about config & dependencies:
+            // - https://github.com/hakimel/reveal.js#configuration
+            // - https://github.com/hakimel/reveal.js#dependencies
+            Reveal.initialize({
+                // Transition style
+                transition: 'fade', // none/fade/slide/convex/concave/zoom
+                dependencies: [
+                    { src: 'plugin/markdown/marked.js' },
+                    { src: 'plugin/markdown/markdown.js' },
+                    { src: 'plugin/notes/notes.js', async: true },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+                ]
+            });
+        </script>
+    </body>
+</html>
